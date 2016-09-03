@@ -49,6 +49,6 @@ public class Character {
     }
 
     public boolean isAlive() {
-        return true;
+        return hitPoints > 0;
     }
 }
