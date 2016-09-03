@@ -76,4 +76,9 @@ public class CharacterTest {
         boolean hit = character.attack(victim, roll);
         assertThat(hit).isEqualTo(hitExpected);
     }
+
+    @Test(expected = RollOutOfBoundsException.class)
+    public void canAttackAnotherCharacter_AndAnExceptionIsThrown_IfTheRollIsGreaterThan20() {
+        character.attack(new Character(), 21);
+    }
 }

@@ -39,6 +39,7 @@ public class Character {
     }
 
     public boolean attack(Character character, int roll) {
+        if(roll > 20) throw new RollOutOfBoundsException("The roll " + roll + " is outside of the allowed range of 1-20");
         return roll >= character.getArmorClass();
     }
 }
