@@ -4,7 +4,7 @@ public class Character {
     private String name;
     private Alignment alignment;
     private int hitPoints = 5;
-    private int armorClass;
+    private int armorClass = 10;
 
     public String getName() {
         return name;

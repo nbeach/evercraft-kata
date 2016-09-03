@@ -46,4 +46,9 @@ public class CharacterTest {
         character.setArmorClass(armorClass);
         assertThat(character.getArmorClass()).isEqualTo(armorClass);
     }
+
+    @Test
+    public void hasAnArmorClassOf10ByDefault() {
+        assertThat(character.getArmorClass()).isEqualTo(10);
+    }
 }
