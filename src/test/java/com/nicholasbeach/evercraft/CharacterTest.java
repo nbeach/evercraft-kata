@@ -51,4 +51,14 @@ public class CharacterTest {
     public void hasAnArmorClassOf10ByDefault() {
         assertThat(character.getArmorClass()).isEqualTo(10);
     }
+
+
+    @Test
+    public void canAttackAnotherCharacter_AndHitIfTheirRollIsEqualToTheVictimsArmorClass() {
+        int roll = 15;
+        Character victim = new Character();
+        victim.setArmorClass(roll);
+        boolean hit = character.attack(victim, roll);
+        assertThat(hit).isTrue();
+    }
 }

@@ -37,4 +37,8 @@ public class Character {
     public void setArmorClass(int armorClass) {
         this.armorClass = armorClass;
     }
+
+    public boolean attack(Character character, int roll) {
+        return true;
+    }
 }
