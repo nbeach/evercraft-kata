@@ -55,22 +55,22 @@ public class CharacterTest {
     @Test
     public void canAttackAnotherCharacter_AndHit_IfTheirRollIsEqualToTheVictimsArmorClass() {
         int roll = 15;
-        testAttackResultGiven(roll, roll, true);
+        assertAttackHitsVictimGiven(roll, roll, true);
     }
 
     @Test
     public void canAttackAnotherCharacter_AndHit_IfTheirRollIsGreaterThanTheVictimsArmorClass() {
         int roll = 15;
-        testAttackResultGiven(roll, roll - 1, true);
+        assertAttackHitsVictimGiven(roll, roll - 1, true);
     }
 
     @Test
     public void canAttackAnotherCharacter_AndMiss_IfTheirRollIsLessThanTheVictimsArmorClass() {
         int roll = 15;
-        testAttackResultGiven(roll, roll + 1, false);
+        assertAttackHitsVictimGiven(roll, roll + 1, false);
     }
 
-    private void testAttackResultGiven(int roll, int victimArmorClass, boolean hitExpected) {
+    private void assertAttackHitsVictimGiven(int roll, int victimArmorClass, boolean hitExpected) {
         Character victim = new Character();
         victim.setArmorClass(victimArmorClass);
         boolean hit = character.attack(victim, roll);
@@ -89,41 +89,28 @@ public class CharacterTest {
 
     @Test
     public void canAttackAnotherCharacter_AndWhenTheyMiss_NoDamageIsDealt() {
-        int roll = 5;
-        int hitPoints = 10;
-        Character victim = new Character();
-        victim.setHitPoints(hitPoints);
-        victim.setArmorClass(roll + 1);
-
-        boolean hit = character.attack(victim, roll);
-        assertThat(hit).isFalse();
-        assertThat(victim.getHitPoints()).isEqualTo(hitPoints);
+        assertAttackDamageOnVictimGiven(5, false, 0);
     }
 
     @Test
     public void canAttackAnotherCharacter_AndWhenTheyHit_1PointOfDamageIsDealt() {
-        int roll = 5;
-        int hitPoints = 10;
-        Character victim = new Character();
-        victim.setHitPoints(hitPoints);
-        victim.setArmorClass(roll);
-
-        boolean hit = character.attack(victim, roll);
-        assertThat(hit).isTrue();
-        assertThat(victim.getHitPoints()).isEqualTo(hitPoints - 1);
+        assertAttackDamageOnVictimGiven(5, true, 1);
     }
 
     @Test
     public void canAttackAnotherCharacter_AndWhenTheyHit_AndTheRollIs20_2PointsOfDamageIsDealt() {
-        int roll = 20;
+        assertAttackDamageOnVictimGiven(20, true, 2);
+    }
+
+    private void assertAttackDamageOnVictimGiven(int roll, boolean attackIsHit, int expectedDamage) {
         int hitPoints = 10;
         Character victim = new Character();
         victim.setHitPoints(hitPoints);
-        victim.setArmorClass(roll);
+        victim.setArmorClass(attackIsHit ? roll : roll + 1);
 
         boolean hit = character.attack(victim, roll);
-        assertThat(hit).isTrue();
-        assertThat(victim.getHitPoints()).isEqualTo(hitPoints - 2);
+        assertThat(hit).isEqualTo(attackIsHit);
+        assertThat(victim.getHitPoints()).isEqualTo(hitPoints - expectedDamage);
     }
 
     @Test
