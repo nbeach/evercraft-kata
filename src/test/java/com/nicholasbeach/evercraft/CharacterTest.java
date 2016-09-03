@@ -114,6 +114,19 @@ public class CharacterTest {
     }
 
     @Test
+    public void canAttackAnotherCharacter_AndWhenTheyHit_AndTheRollIs20_2PointsOfDamageIsDealt() {
+        int roll = 20;
+        int hitPoints = 10;
+        Character victim = new Character();
+        victim.setHitPoints(hitPoints);
+        victim.setArmorClass(roll);
+
+        boolean hit = character.attack(victim, roll);
+        assertThat(hit).isTrue();
+        assertThat(victim.getHitPoints()).isEqualTo(hitPoints - 2);
+    }
+
+    @Test
     public void whenHitPointsAreGreaterThanZeroTheCharacterIsAlive() {
         character.setHitPoints(1);
         assertThat(character.isAlive()).isTrue();

@@ -42,7 +42,8 @@ public class Character {
         if(roll < 1 || roll > 20 ) throw new RollOutOfBoundsException("The roll " + roll + " is outside of the allowed range of 1-20");
 
         if(roll >= victim.getArmorClass()) {
-            victim.setHitPoints(victim.getHitPoints() - 1);
+            int damage = roll == 20 ? 2 : 1;
+            victim.setHitPoints(victim.getHitPoints() - damage);
             return true;
         }
         return false;
