@@ -61,4 +61,13 @@ public class CharacterTest {
         boolean hit = character.attack(victim, roll);
         assertThat(hit).isTrue();
     }
+
+    @Test
+    public void canAttackAnotherCharacter_AndHitIfTheirRollIsGreaterThanTheVictimsArmorClass() {
+        int roll = 15;
+        Character victim = new Character();
+        victim.setArmorClass(roll - 1);
+        boolean hit = character.attack(victim, roll);
+        assertThat(hit).isTrue();
+    }
 }
