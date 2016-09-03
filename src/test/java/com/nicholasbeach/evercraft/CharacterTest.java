@@ -81,4 +81,9 @@ public class CharacterTest {
     public void canAttackAnotherCharacter_AndAnExceptionIsThrown_IfTheRollIsGreaterThan20() {
         character.attack(new Character(), 21);
     }
+
+    @Test(expected = RollOutOfBoundsException.class)
+    public void canAttackAnotherCharacter_AndAnExceptionIsThrown_IfTheRollIsLessThan1() {
+        character.attack(new Character(), 0);
+    }
 }
