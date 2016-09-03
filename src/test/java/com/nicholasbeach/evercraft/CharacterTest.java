@@ -28,4 +28,11 @@ public class CharacterTest {
         assertThat(character.getAlignment()).isEqualTo(alignment);
     }
 
+    @Test
+    public void canBeGivenHitPoints() {
+        int hitPoints = 10;
+        character.setHitPoints(hitPoints);
+        assertThat(character.getHitPoints()).isEqualTo(hitPoints);
+    }
+
 }

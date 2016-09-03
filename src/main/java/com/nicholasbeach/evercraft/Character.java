@@ -3,6 +3,7 @@ package com.nicholasbeach.evercraft;
 public class Character {
     private String name;
     private Alignment alignment;
+    private int hitPoints;
 
     public String getName() {
         return name;
@@ -18,5 +19,13 @@ public class Character {
 
     public void setAlignment(Alignment alignment) {
         this.alignment = alignment;
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
+    }
+
+    public void setHitPoints(int hitPoints) {
+        this.hitPoints = hitPoints;
     }
 }
