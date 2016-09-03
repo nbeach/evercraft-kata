@@ -40,4 +40,10 @@ public class CharacterTest {
         assertThat(character.getHitPoints()).isEqualTo(5);
     }
 
+    @Test
+    public void canBeGivenAnArmorClass() {
+        int armorClass = 5;
+        character.setArmorClass(armorClass);
+        assertThat(character.getArmorClass()).isEqualTo(armorClass);
+    }
 }
