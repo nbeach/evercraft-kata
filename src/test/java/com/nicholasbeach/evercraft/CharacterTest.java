@@ -56,27 +56,25 @@ public class CharacterTest {
     @Test
     public void canAttackAnotherCharacter_AndHitIfTheirRollIsEqualToTheVictimsArmorClass() {
         int roll = 15;
-        Character victim = new Character();
-        victim.setArmorClass(roll);
-        boolean hit = character.attack(victim, roll);
-        assertThat(hit).isTrue();
+        testAttackResultGiven(roll, roll, true);
     }
 
     @Test
     public void canAttackAnotherCharacter_AndHitIfTheirRollIsGreaterThanTheVictimsArmorClass() {
         int roll = 15;
-        Character victim = new Character();
-        victim.setArmorClass(roll - 1);
-        boolean hit = character.attack(victim, roll);
-        assertThat(hit).isTrue();
+        testAttackResultGiven(roll, roll - 1, true);
     }
 
     @Test
     public void canAttackAnotherCharacter_AndMissIfTheirRollIsLessThanTheVictimsArmorClass() {
         int roll = 15;
+        testAttackResultGiven(roll, roll + 1, false);
+    }
+
+    private void testAttackResultGiven(int roll, int victimArmorClass, boolean hitExpected) {
         Character victim = new Character();
-        victim.setArmorClass(roll + 1);
+        victim.setArmorClass(victimArmorClass);
         boolean hit = character.attack(victim, roll);
-        assertThat(hit).isFalse();
+        assertThat(hit).isEqualTo(hitExpected);
     }
 }
