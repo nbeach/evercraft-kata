@@ -99,4 +99,17 @@ public class CharacterTest {
         assertThat(hit).isFalse();
         assertThat(victim.getHitPoints()).isEqualTo(hitPoints);
     }
+
+    @Test
+    public void canAttackAnotherCharacter_AndWhenTheyHit_1PointOfDamageIsDealt() {
+        int roll = 5;
+        int hitPoints = 10;
+        Character victim = new Character();
+        victim.setHitPoints(hitPoints);
+        victim.setArmorClass(roll);
+
+        boolean hit = character.attack(victim, roll);
+        assertThat(hit).isTrue();
+        assertThat(victim.getHitPoints()).isEqualTo(hitPoints - 1);
+    }
 }

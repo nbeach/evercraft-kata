@@ -38,8 +38,13 @@ public class Character {
         this.armorClass = armorClass;
     }
 
-    public boolean attack(Character character, int roll) {
+    public boolean attack(Character victim, int roll) {
         if(roll < 1 || roll > 20 ) throw new RollOutOfBoundsException("The roll " + roll + " is outside of the allowed range of 1-20");
-        return roll >= character.getArmorClass();
+
+        if(roll >= victim.getArmorClass()) {
+            victim.setHitPoints(victim.getHitPoints() - 1);
+            return true;
+        }
+        return false;
     }
 }
