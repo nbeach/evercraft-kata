@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CharacterTest {
 
-    Character character;
+    private Character character;
 
     @Before
     public void before() {
@@ -85,5 +85,18 @@ public class CharacterTest {
     @Test(expected = RollOutOfBoundsException.class)
     public void canAttackAnotherCharacter_AndAnExceptionIsThrown_IfTheRollIsLessThan1() {
         character.attack(new Character(), 0);
+    }
+
+    @Test
+    public void canAttackAnotherCharacter_AndWhenTheyMiss_NoDamageIsDealt() {
+        int roll = 5;
+        int hitPoints = 10;
+        Character victim = new Character();
+        victim.setHitPoints(hitPoints);
+        victim.setArmorClass(roll + 1);
+
+        boolean hit = character.attack(victim, roll);
+        assertThat(hit).isFalse();
+        assertThat(victim.getHitPoints()).isEqualTo(hitPoints);
     }
 }
