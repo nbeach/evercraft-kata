@@ -52,21 +52,20 @@ public class CharacterTest {
         assertThat(character.getArmorClass()).isEqualTo(10);
     }
 
-
     @Test
-    public void canAttackAnotherCharacter_AndHitIfTheirRollIsEqualToTheVictimsArmorClass() {
+    public void canAttackAnotherCharacter_AndHit_IfTheirRollIsEqualToTheVictimsArmorClass() {
         int roll = 15;
         testAttackResultGiven(roll, roll, true);
     }
 
     @Test
-    public void canAttackAnotherCharacter_AndHitIfTheirRollIsGreaterThanTheVictimsArmorClass() {
+    public void canAttackAnotherCharacter_AndHit_IfTheirRollIsGreaterThanTheVictimsArmorClass() {
         int roll = 15;
         testAttackResultGiven(roll, roll - 1, true);
     }
 
     @Test
-    public void canAttackAnotherCharacter_AndMissIfTheirRollIsLessThanTheVictimsArmorClass() {
+    public void canAttackAnotherCharacter_AndMiss_IfTheirRollIsLessThanTheVictimsArmorClass() {
         int roll = 15;
         testAttackResultGiven(roll, roll + 1, false);
     }
