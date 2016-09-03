@@ -35,4 +35,9 @@ public class CharacterTest {
         assertThat(character.getHitPoints()).isEqualTo(hitPoints);
     }
 
+    @Test
+    public void has5HitPointsByDefault() {
+        assertThat(character.getHitPoints()).isEqualTo(5);
+    }
+
 }
