@@ -112,4 +112,10 @@ public class CharacterTest {
         assertThat(hit).isTrue();
         assertThat(victim.getHitPoints()).isEqualTo(hitPoints - 1);
     }
+
+    @Test
+    public void whenHitPointsAreGreaterThanZeroTheCharacterIsAlive() {
+        character.setHitPoints(1);
+        assertThat(character.isAlive()).isTrue();
+    }
 }

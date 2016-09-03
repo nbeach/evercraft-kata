@@ -47,4 +47,8 @@ public class Character {
         }
         return false;
     }
+
+    public boolean isAlive() {
+        return true;
+    }
 }
