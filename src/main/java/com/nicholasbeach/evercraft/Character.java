@@ -39,6 +39,6 @@ public class Character {
     }
 
     public boolean attack(Character character, int roll) {
-        return true;
+        return roll >= character.getArmorClass();
     }
 }
