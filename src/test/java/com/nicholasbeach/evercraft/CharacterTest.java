@@ -53,19 +53,19 @@ public class CharacterTest {
     }
 
     @Test
-    public void canAttackAnotherCharacter_AndHit_IfTheirRollIsEqualToTheVictimsArmorClass() {
+    public void canAttackAnotherCharacter_AndIfTheRollIsEqualToTheVictimsArmorClass_TheAttackWillHit() {
         int roll = 15;
         assertAttackHitsVictimGiven(roll, roll, true);
     }
 
     @Test
-    public void canAttackAnotherCharacter_AndHit_IfTheirRollIsGreaterThanTheVictimsArmorClass() {
+    public void canAttackAnotherCharacter_AndIfTheRollIsGreaterThanTheVictimsArmorClass_TheAttackWillHit() {
         int roll = 15;
         assertAttackHitsVictimGiven(roll, roll - 1, true);
     }
 
     @Test
-    public void canAttackAnotherCharacter_AndMiss_IfTheirRollIsLessThanTheVictimsArmorClass() {
+    public void canAttackAnotherCharacter_AndIfTheRollIsLessThanTheVictimsArmorClass_TheAttackWillMiss() {
         int roll = 15;
         assertAttackHitsVictimGiven(roll, roll + 1, false);
     }
