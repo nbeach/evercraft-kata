@@ -124,4 +124,10 @@ public class CharacterTest {
         character.setHitPoints(0);
         assertThat(character.isAlive()).isFalse();
     }
+
+    @Test
+    public void whenHitPointsAreLessThanZeroTheCharacterIsDead() {
+        character.setHitPoints(-1);
+        assertThat(character.isAlive()).isFalse();
+    }
 }
