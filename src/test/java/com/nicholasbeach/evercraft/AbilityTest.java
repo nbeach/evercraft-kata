@@ -22,6 +22,11 @@ public class AbilityTest {
         assertThat(ability.getScore()).isEqualTo(score);
     }
 
+    @Test
+    public void whenGivenAScore_AllowsAMinimumValueOf1() {
+        ability.setScore(1);
+    }
+
     @Test(expected = ScoreOutOfBoundsException.class)
     public void whenGivenAScore_LessThan1_ThrowsAnOutOfBoundsException() {
         ability.setScore(0);
