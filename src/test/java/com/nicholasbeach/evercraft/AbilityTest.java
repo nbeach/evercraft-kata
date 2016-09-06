@@ -13,4 +13,10 @@ public class AbilityTest {
         ability.setScore(score);
         assertThat(ability.getScore()).isEqualTo(score);
     }
+
+    @Test(expected = ScoreOutOfBoundsException.class)
+    public void whenGivenAScore_LessThan1_ThrowsAnOutOfBoundsException() {
+        Ability ability = new Ability();
+        ability.setScore(0);
+    }
 }
