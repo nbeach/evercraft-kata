@@ -16,20 +16,18 @@ public class AbilityTest {
     }
 
     @Test
-    public void canBeGivenAScore() {
-        int score = 5;
-        ability.setScore(score);
-        assertThat(ability.getScore()).isEqualTo(score);
-    }
-
-    @Test
     public void whenGivenAScore_AllowsAMinimumValueOf1() {
-        ability.setScore(1);
+        assertScoreCanBeSetTo(1);
     }
 
     @Test
     public void whenGivenAScore_AllowsAMaximumValueOf20() {
-        ability.setScore(20);
+        assertScoreCanBeSetTo(20);
+    }
+
+    private void assertScoreCanBeSetTo(int score) {
+        ability.setScore(score);
+        assertThat(ability.getScore()).isEqualTo(score);
     }
 
     @Test(expected = ScoreOutOfBoundsException.class)
