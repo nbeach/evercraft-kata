@@ -27,6 +27,11 @@ public class AbilityTest {
         ability.setScore(1);
     }
 
+    @Test
+    public void whenGivenAScore_AllowsAMaximumValueOf20() {
+        ability.setScore(20);
+    }
+
     @Test(expected = ScoreOutOfBoundsException.class)
     public void whenGivenAScore_LessThan1_ThrowsAnOutOfBoundsException() {
         ability.setScore(0);
