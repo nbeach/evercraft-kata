@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AbilityTest {
 
     @Test
-    public void canBegGivenAScore() {
+    public void canBeGivenAScore() {
         int score = 5;
         Ability ability = new Ability();
         ability.setScore(score);
