@@ -1,5 +1,6 @@
 package com.nicholasbeach.evercraft;
 
+import com.nicholasbeach.evercraft.exception.ScoreOutOfBoundsException;
 import org.junit.Before;
 import org.junit.Test;
 

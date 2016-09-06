@@ -1,4 +1,4 @@
-package com.nicholasbeach.evercraft;
+package com.nicholasbeach.evercraft.exception;
 
 public class ScoreOutOfBoundsException extends RuntimeException {
 

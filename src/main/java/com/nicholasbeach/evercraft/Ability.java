@@ -1,5 +1,7 @@
 package com.nicholasbeach.evercraft;
 
+import com.nicholasbeach.evercraft.exception.ScoreOutOfBoundsException;
+
 public class Ability {
 
     int score;

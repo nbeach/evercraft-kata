@@ -1,5 +1,7 @@
 package com.nicholasbeach.evercraft;
 
+import com.nicholasbeach.evercraft.exception.RollOutOfBoundsException;
+
 public class Character {
     private String name;
     private Alignment alignment;
