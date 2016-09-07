@@ -13,6 +13,7 @@ public class Character {
     private Ability constitution;
     private Ability wisdom;
     private Ability intelligence;
+    private Ability charisma;
 
     public String getName() {
         return name;
@@ -84,6 +85,14 @@ public class Character {
 
     public void setIntelligence(Ability intelligence) {
         this.intelligence = intelligence;
+    }
+
+    public Ability getCharisma() {
+        return charisma;
+    }
+
+    public void setCharisma(Ability charisma) {
+        this.charisma = charisma;
     }
 
     public boolean attack(Character victim, int roll) {

@@ -90,6 +90,13 @@ public class CharacterTest {
     }
 
     @Test
+    public void canBeGivenCharisma() {
+        Ability charisma = new Ability();
+        character.setCharisma(charisma);
+        assertThat(character.getCharisma()).isEqualTo(charisma);
+    }
+
+    @Test
     public void canAttackAnotherCharacter_AndIfTheRollIsEqualToTheVictimsArmorClass_TheAttackWillHit() {
         int roll = 15;
         assertAttackHitsVictimGiven(roll, roll, true);
