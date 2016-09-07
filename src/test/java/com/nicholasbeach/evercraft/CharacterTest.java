@@ -10,10 +10,12 @@ import static org.assertj.core.api.Assertions.in;
 public class CharacterTest {
 
     private Character character;
+    private Ability ability;
 
     @Before
     public void before() {
         character = new Character();
+        ability = new Ability();
     }
 
     @Test
@@ -56,44 +58,38 @@ public class CharacterTest {
 
     @Test
     public void canBeGivenStrength() {
-        Ability strength = new Ability();
-        character.setStrength(strength);
-        assertThat(character.getStrength()).isEqualTo(strength);
+        character.setStrength(ability);
+        assertThat(character.getStrength()).isEqualTo(ability);
     }
 
     @Test
     public void canBeGivenDexterity() {
-        Ability dexterity = new Ability();
-        character.setDexterity(dexterity);
-        assertThat(character.getDexterity()).isEqualTo(dexterity);
+        character.setDexterity(ability);
+        assertThat(character.getDexterity()).isEqualTo(ability);
     }
 
     @Test
     public void canBeGivenConstitution() {
-        Ability constitution = new Ability();
-        character.setConstitution(constitution);
-        assertThat(character.getConstitution()).isEqualTo(constitution);
+        character.setConstitution(ability);
+        assertThat(character.getConstitution()).isEqualTo(ability);
     }
 
     @Test
     public void canBeGivenWisdom() {
-        Ability wisdom = new Ability();
-        character.setWisdom(wisdom);
-        assertThat(character.getWisdom()).isEqualTo(wisdom);
+        character.setWisdom(ability);
+        assertThat(character.getWisdom()).isEqualTo(ability);
     }
 
     @Test
     public void canBeGivenIntelligence() {
-        Ability intelligence = new Ability();
-        character.setIntelligence(intelligence);
-        assertThat(character.getIntelligence()).isEqualTo(intelligence);
+        character.setIntelligence(ability);
+        assertThat(character.getIntelligence()).isEqualTo(ability);
     }
 
     @Test
     public void canBeGivenCharisma() {
-        Ability charisma = new Ability();
-        character.setCharisma(charisma);
-        assertThat(character.getCharisma()).isEqualTo(charisma);
+        character.setCharisma(ability);
+        assertThat(character.getCharisma()).isEqualTo(ability);
     }
 
     @Test
