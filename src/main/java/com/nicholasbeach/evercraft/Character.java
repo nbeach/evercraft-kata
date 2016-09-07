@@ -7,7 +7,9 @@ public class Character {
     private Alignment alignment;
     private int hitPoints = 5;
     private int armorClass = 10;
+
     private Ability dexterity;
+    private Ability strength;
 
     public String getName() {
         return name;
@@ -39,6 +41,14 @@ public class Character {
 
     public void setArmorClass(int armorClass) {
         this.armorClass = armorClass;
+    }
+
+    public Ability getStrength() {
+        return strength;
+    }
+
+    public void setStrength(Ability strength) {
+        this.strength = strength;
     }
 
     public Ability getDexterity() {

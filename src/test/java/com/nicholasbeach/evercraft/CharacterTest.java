@@ -54,7 +54,14 @@ public class CharacterTest {
     }
 
     @Test
-    public void hasDexterity() {
+    public void canBeGivenStrength() {
+        Ability strength = new Ability();
+        character.setStrength(strength);
+        assertThat(character.getStrength()).isEqualTo(strength);
+    }
+
+    @Test
+    public void canBeGivenDexterity() {
         Ability dexterity = new Ability();
         character.setDexterity(dexterity);
         assertThat(character.getDexterity()).isEqualTo(dexterity);
