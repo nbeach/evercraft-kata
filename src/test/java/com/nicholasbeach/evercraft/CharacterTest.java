@@ -83,6 +83,14 @@ public class CharacterTest {
     }
 
     @Test
+    public void whenDexterityIsNull_ArmorClassIsUnaffected() {
+        int armorClass = 5;
+        character.setArmorClass(armorClass);
+        character.setDexterity(null);
+        assertThat(character.getArmorClass()).isEqualTo(armorClass);
+    }
+
+    @Test
     public void canBeGivenConstitution() {
         character.setConstitution(ability);
         assertThat(character.getConstitution()).isEqualTo(ability);
