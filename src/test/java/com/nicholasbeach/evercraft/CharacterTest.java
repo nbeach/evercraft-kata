@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.in;
 
 public class CharacterTest {
 
@@ -79,6 +80,13 @@ public class CharacterTest {
         Ability wisdom = new Ability();
         character.setWisdom(wisdom);
         assertThat(character.getWisdom()).isEqualTo(wisdom);
+    }
+
+    @Test
+    public void canBeGivenIntelligence() {
+        Ability intelligence = new Ability();
+        character.setIntelligence(intelligence);
+        assertThat(character.getIntelligence()).isEqualTo(intelligence);
     }
 
     @Test
