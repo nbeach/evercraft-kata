@@ -7,6 +7,7 @@ public class Character {
     private Alignment alignment;
     private int hitPoints = 5;
     private int armorClass = 10;
+    private Ability dexterity;
 
     public String getName() {
         return name;
@@ -38,6 +39,14 @@ public class Character {
 
     public void setArmorClass(int armorClass) {
         this.armorClass = armorClass;
+    }
+
+    public Ability getDexterity() {
+        return dexterity;
+    }
+
+    public void setDexterity(Ability dexterity) {
+        this.dexterity = dexterity;
     }
 
     public boolean attack(Character victim, int roll) {

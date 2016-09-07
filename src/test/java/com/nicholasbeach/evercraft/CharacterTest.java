@@ -54,6 +54,13 @@ public class CharacterTest {
     }
 
     @Test
+    public void hasDexterity() {
+        Ability dexterity = new Ability();
+        character.setDexterity(dexterity);
+        assertThat(character.getDexterity()).isEqualTo(dexterity);
+    }
+
+    @Test
     public void canAttackAnotherCharacter_AndIfTheRollIsEqualToTheVictimsArmorClass_TheAttackWillHit() {
         int roll = 15;
         assertAttackHitsVictimGiven(roll, roll, true);
