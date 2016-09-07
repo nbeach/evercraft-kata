@@ -68,6 +68,15 @@ public class CharacterTest {
     }
 
     @Test
+    public void canBeGivenConstitution() {
+        Ability constitution = new Ability();
+        character.setConstitution(constitution);
+        assertThat(character.getConstitution()).isEqualTo(constitution);
+    }
+
+
+
+    @Test
     public void canAttackAnotherCharacter_AndIfTheRollIsEqualToTheVictimsArmorClass_TheAttackWillHit() {
         int roll = 15;
         assertAttackHitsVictimGiven(roll, roll, true);
