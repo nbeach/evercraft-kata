@@ -83,7 +83,7 @@ public class CharacterTest {
     }
 
     @Test
-    public void whenDexterityIsNull_ArmorClassIsUnaffected() {
+    public void whenDexterityIsNotSet_ArmorClassIsNotModified() {
         int armorClass = 5;
         character.setArmorClass(armorClass);
         character.setDexterity(null);
