@@ -74,7 +74,12 @@ public class CharacterTest {
         assertThat(character.getConstitution()).isEqualTo(constitution);
     }
 
-
+    @Test
+    public void canBeGivenWisdom() {
+        Ability wisdom = new Ability();
+        character.setWisdom(wisdom);
+        assertThat(character.getWisdom()).isEqualTo(wisdom);
+    }
 
     @Test
     public void canAttackAnotherCharacter_AndIfTheRollIsEqualToTheVictimsArmorClass_TheAttackWillHit() {

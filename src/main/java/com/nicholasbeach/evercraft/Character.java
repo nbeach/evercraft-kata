@@ -11,6 +11,7 @@ public class Character {
     private Ability dexterity;
     private Ability strength;
     private Ability constitution;
+    private Ability wisdom;
 
     public String getName() {
         return name;
@@ -66,6 +67,14 @@ public class Character {
 
     public void setConstitution(Ability constitution) {
         this.constitution = constitution;
+    }
+
+    public Ability getWisdom() {
+        return wisdom;
+    }
+
+    public void setWisdom(Ability wisdom) {
+        this.wisdom = wisdom;
     }
 
     public boolean attack(Character victim, int roll) {
