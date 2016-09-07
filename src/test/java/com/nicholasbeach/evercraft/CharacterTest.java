@@ -5,7 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class CharacterTest {
 
@@ -66,6 +67,19 @@ public class CharacterTest {
     public void canBeGivenDexterity() {
         character.setDexterity(ability);
         assertThat(character.getDexterity()).isEqualTo(ability);
+    }
+
+    @Test
+    public void dexterityModifierIsAddedToArmorClass() {
+        int armorClass = 5;
+        character.setArmorClass(armorClass);
+
+        int modifier = 3;
+        Ability ability = mock(Ability.class);
+        when(ability.getModifier()).thenReturn(modifier);
+        character.setDexterity(ability);
+
+        assertThat(character.getArmorClass()).isEqualTo(armorClass + modifier);
     }
 
     @Test

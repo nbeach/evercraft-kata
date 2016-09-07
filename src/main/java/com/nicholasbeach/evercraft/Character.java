@@ -40,7 +40,8 @@ public class Character {
     }
 
     public int getArmorClass() {
-        return armorClass;
+        int modifier =  dexterity != null ? getDexterity().getModifier() : 0;
+        return armorClass + modifier;
     }
 
     public void setArmorClass(int armorClass) {
