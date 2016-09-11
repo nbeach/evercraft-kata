@@ -97,6 +97,23 @@ public class CharacterTest {
     }
 
     @Test
+    public void constitutionModifierIsAddedToHitPoints() {
+        int hitPoints = 5;
+        character.setHitPoints(hitPoints);
+
+        int modifier = 3;
+        character.setConstitution(getMockAbilityThatReturnsModifier(modifier));
+
+        assertThat(character.getHitPoints()).isEqualTo(hitPoints + modifier);
+    }
+
+    private Ability getMockAbilityThatReturnsModifier(int modifier) {
+        Ability ability = mock(Ability.class);
+        when(ability.getModifier()).thenReturn(modifier);
+        return ability;
+    }
+
+    @Test
     public void canBeGivenWisdom() {
         character.setWisdom(ability);
         assertThat(character.getWisdom()).isEqualTo(ability);

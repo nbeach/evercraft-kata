@@ -32,7 +32,8 @@ public class Character {
     }
 
     public int getHitPoints() {
-        return hitPoints;
+        int modifier =  getConstitution() != null ? getConstitution().getModifier() : 0;
+        return hitPoints + modifier;
     }
 
     public void setHitPoints(int hitPoints) {
