@@ -33,7 +33,13 @@ public class Character {
 
     public int getHitPoints() {
         int modifier =  getConstitution() != null ? getConstitution().getModifier() : 0;
-        return hitPoints + modifier;
+        int modifiedHitPoints = hitPoints + modifier;
+
+        if(modifiedHitPoints >= 1) {
+            return modifiedHitPoints;
+        } else {
+            return 1;
+        }
     }
 
     public void setHitPoints(int hitPoints) {

@@ -106,6 +106,14 @@ public class CharacterTest {
     }
 
     @Test
+    public void constitutionModifierDoesNotReduceHitPointsToLessThan1() {
+        character.setHitPoints(3);
+        character.setConstitution(getMockAbilityThatReturnsModifier(-3));
+
+        assertThat(character.getHitPoints()).isEqualTo(1);
+    }
+
+    @Test
     public void whenConstitutionIsNotSet_HitPointsAreNotModified() {
         int hitPoints = 5;
         character.setHitPoints(hitPoints);
