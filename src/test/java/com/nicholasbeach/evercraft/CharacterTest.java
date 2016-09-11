@@ -75,9 +75,7 @@ public class CharacterTest {
         character.setArmorClass(armorClass);
 
         int modifier = 3;
-        Ability ability = mock(Ability.class);
-        when(ability.getModifier()).thenReturn(modifier);
-        character.setDexterity(ability);
+        character.setDexterity(getMockAbilityThatReturnsModifier(modifier));
 
         assertThat(character.getArmorClass()).isEqualTo(armorClass + modifier);
     }
