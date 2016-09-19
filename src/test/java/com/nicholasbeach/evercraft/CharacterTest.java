@@ -48,7 +48,7 @@ public class CharacterTest {
     }
 
     @Test
-    public void hasAMaximum5HitPointsOf5ByDefault() {
+    public void hasAMaximumHitPointsOf5ByDefault() {
         assertThat(character.getMaximumHitPoints()).isEqualTo(5);
     }
 
