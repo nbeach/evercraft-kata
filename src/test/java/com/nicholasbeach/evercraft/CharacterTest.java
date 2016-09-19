@@ -53,6 +53,12 @@ public class CharacterTest {
     }
 
     @Test
+    public void hasACurrentHitPointsOf5ByDefault() {
+        assertThat(character.getCurrentHitPoints()).isEqualTo(5);
+    }
+
+
+    @Test
     public void canBeGivenAnArmorClass() {
         int armorClass = 5;
         character.setArmorClass(armorClass);

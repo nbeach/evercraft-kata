@@ -6,7 +6,7 @@ public class Character {
     private String name;
     private Alignment alignment;
     private int maximumHitPoints = 5;
-    private int currentHitPoints;
+    private int currentHitPoints = maximumHitPoints;
     private int armorClass = 10;
 
     private Ability dexterity;
