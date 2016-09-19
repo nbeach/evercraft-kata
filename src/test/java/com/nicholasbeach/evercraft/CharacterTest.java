@@ -211,29 +211,29 @@ public class CharacterTest {
     private void assertAttackDamageOnVictimGiven(int roll, boolean attackIsHit, int expectedDamage) {
         int hitPoints = 10;
         Character victim = new Character();
-        victim.setMaximumHitPoints(hitPoints);
+        victim.setCurrentHitPoints(hitPoints);
         victim.setArmorClass(attackIsHit ? roll : roll + 1);
 
         boolean hit = character.attack(victim, roll);
         assertThat(hit).isEqualTo(attackIsHit);
-        assertThat(victim.getMaximumHitPoints()).isEqualTo(hitPoints - expectedDamage);
+        assertThat(victim.getCurrentHitPoints()).isEqualTo(hitPoints - expectedDamage);
     }
 
     @Test
     public void whenHitPointsAreGreaterThanZeroTheCharacterIsAlive() {
-        character.setMaximumHitPoints(1);
+        character.setCurrentHitPoints(1);
         assertThat(character.isAlive()).isTrue();
     }
 
     @Test
     public void whenHitPointsAreZeroTheCharacterIsDead() {
-        character.setMaximumHitPoints(0);
+        character.setCurrentHitPoints(0);
         assertThat(character.isAlive()).isFalse();
     }
 
     @Test
     public void whenHitPointsAreLessThanZeroTheCharacterIsDead() {
-        character.setMaximumHitPoints(-1);
+        character.setCurrentHitPoints(-1);
         assertThat(character.isAlive()).isFalse();
     }
 }

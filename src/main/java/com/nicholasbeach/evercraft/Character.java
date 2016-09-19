@@ -117,13 +117,13 @@ public class Character {
 
         if(roll >= victim.getArmorClass()) {
             int damage = roll == 20 ? 2 : 1;
-            victim.setMaximumHitPoints(victim.getMaximumHitPoints() - damage);
+            victim.setCurrentHitPoints(victim.getCurrentHitPoints() - damage);
             return true;
         }
         return false;
     }
 
     public boolean isAlive() {
-        return maximumHitPoints > 0;
+        return getCurrentHitPoints() > 0;
     }
 }
