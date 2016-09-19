@@ -220,19 +220,19 @@ public class CharacterTest {
     }
 
     @Test
-    public void whenHitPointsAreGreaterThanZeroTheCharacterIsAlive() {
+    public void whenCurrentHitPointsAreGreaterThanZeroTheCharacterIsAlive() {
         character.setCurrentHitPoints(1);
         assertThat(character.isAlive()).isTrue();
     }
 
     @Test
-    public void whenHitPointsAreZeroTheCharacterIsDead() {
+    public void whenCurrentHitPointsAreZeroTheCharacterIsDead() {
         character.setCurrentHitPoints(0);
         assertThat(character.isAlive()).isFalse();
     }
 
     @Test
-    public void whenHitPointsAreLessThanZeroTheCharacterIsDead() {
+    public void whenCurrentHitPointsAreLessThanZeroTheCharacterIsDead() {
         character.setCurrentHitPoints(-1);
         assertThat(character.isAlive()).isFalse();
     }
