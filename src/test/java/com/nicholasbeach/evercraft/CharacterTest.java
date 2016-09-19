@@ -41,6 +41,13 @@ public class CharacterTest {
     }
 
     @Test
+    public void canBeGivenACurrentHitPointsValue() {
+        int hitPoints = 10;
+        character.setMaximumHitPoints(hitPoints);
+        assertThat(character.getMaximumHitPoints()).isEqualTo(hitPoints);
+    }
+
+    @Test
     public void hasAMaximum5HitPointsOf5ByDefault() {
         assertThat(character.getMaximumHitPoints()).isEqualTo(5);
     }

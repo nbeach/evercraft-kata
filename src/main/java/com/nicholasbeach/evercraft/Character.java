@@ -6,6 +6,7 @@ public class Character {
     private String name;
     private Alignment alignment;
     private int maximumHitPoints = 5;
+    private int currentHitPoints;
     private int armorClass = 10;
 
     private Ability dexterity;
@@ -44,6 +45,14 @@ public class Character {
 
     public void setMaximumHitPoints(int maximumHitPoints) {
         this.maximumHitPoints = maximumHitPoints;
+    }
+
+    public int getCurrentHitPoints() {
+        return currentHitPoints;
+    }
+
+    public void setCurrentHitPoints(int currentHitPoints) {
+        this.currentHitPoints = currentHitPoints;
     }
 
     public int getArmorClass() {
