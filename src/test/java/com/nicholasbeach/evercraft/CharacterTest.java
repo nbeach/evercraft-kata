@@ -34,15 +34,15 @@ public class CharacterTest {
     }
 
     @Test
-    public void canBeGivenHitPoints() {
+    public void canBeGivenAMaximumHitPointsValue() {
         int hitPoints = 10;
-        character.setHitPoints(hitPoints);
-        assertThat(character.getHitPoints()).isEqualTo(hitPoints);
+        character.setMaximumHitPoints(hitPoints);
+        assertThat(character.getMaximumHitPoints()).isEqualTo(hitPoints);
     }
 
     @Test
-    public void has5HitPointsByDefault() {
-        assertThat(character.getHitPoints()).isEqualTo(5);
+    public void hasAMaximum5HitPointsOf5ByDefault() {
+        assertThat(character.getMaximumHitPoints()).isEqualTo(5);
     }
 
     @Test
@@ -95,30 +95,30 @@ public class CharacterTest {
     }
 
     @Test
-    public void constitutionModifierIsAddedToHitPoints() {
+    public void constitutionModifierIsAddedToMaximumHitPoints() {
         int hitPoints = 5;
-        character.setHitPoints(hitPoints);
+        character.setMaximumHitPoints(hitPoints);
 
         int modifier = 3;
         character.setConstitution(getMockAbilityThatReturnsModifier(modifier));
 
-        assertThat(character.getHitPoints()).isEqualTo(hitPoints + modifier);
+        assertThat(character.getMaximumHitPoints()).isEqualTo(hitPoints + modifier);
     }
 
     @Test
-    public void constitutionModifierDoesNotReduceHitPointsToLessThan1() {
-        character.setHitPoints(3);
+    public void constitutionModifierDoesNotReduceMaximumHitPointsToLessThan1() {
+        character.setMaximumHitPoints(3);
         character.setConstitution(getMockAbilityThatReturnsModifier(-3));
 
-        assertThat(character.getHitPoints()).isEqualTo(1);
+        assertThat(character.getMaximumHitPoints()).isEqualTo(1);
     }
 
     @Test
-    public void whenConstitutionIsNotSet_HitPointsAreNotModified() {
+    public void whenConstitutionIsNotSet_MaximumHitPointsAreNotModified() {
         int hitPoints = 5;
-        character.setHitPoints(hitPoints);
+        character.setMaximumHitPoints(hitPoints);
         character.setConstitution(null);
-        assertThat(character.getHitPoints()).isEqualTo(hitPoints);
+        assertThat(character.getMaximumHitPoints()).isEqualTo(hitPoints);
     }
 
     private Ability getMockAbilityThatReturnsModifier(int modifier) {
@@ -198,29 +198,29 @@ public class CharacterTest {
     private void assertAttackDamageOnVictimGiven(int roll, boolean attackIsHit, int expectedDamage) {
         int hitPoints = 10;
         Character victim = new Character();
-        victim.setHitPoints(hitPoints);
+        victim.setMaximumHitPoints(hitPoints);
         victim.setArmorClass(attackIsHit ? roll : roll + 1);
 
         boolean hit = character.attack(victim, roll);
         assertThat(hit).isEqualTo(attackIsHit);
-        assertThat(victim.getHitPoints()).isEqualTo(hitPoints - expectedDamage);
+        assertThat(victim.getMaximumHitPoints()).isEqualTo(hitPoints - expectedDamage);
     }
 
     @Test
     public void whenHitPointsAreGreaterThanZeroTheCharacterIsAlive() {
-        character.setHitPoints(1);
+        character.setMaximumHitPoints(1);
         assertThat(character.isAlive()).isTrue();
     }
 
     @Test
     public void whenHitPointsAreZeroTheCharacterIsDead() {
-        character.setHitPoints(0);
+        character.setMaximumHitPoints(0);
         assertThat(character.isAlive()).isFalse();
     }
 
     @Test
     public void whenHitPointsAreLessThanZeroTheCharacterIsDead() {
-        character.setHitPoints(-1);
+        character.setMaximumHitPoints(-1);
         assertThat(character.isAlive()).isFalse();
     }
 }

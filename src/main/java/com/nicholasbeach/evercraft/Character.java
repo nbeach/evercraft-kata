@@ -5,7 +5,7 @@ import com.nicholasbeach.evercraft.exception.RollOutOfBoundsException;
 public class Character {
     private String name;
     private Alignment alignment;
-    private int hitPoints = 5;
+    private int maximumHitPoints = 5;
     private int armorClass = 10;
 
     private Ability dexterity;
@@ -31,9 +31,9 @@ public class Character {
         this.alignment = alignment;
     }
 
-    public int getHitPoints() {
+    public int getMaximumHitPoints() {
         int modifier =  getConstitution() != null ? getConstitution().getModifier() : 0;
-        int modifiedHitPoints = hitPoints + modifier;
+        int modifiedHitPoints = maximumHitPoints + modifier;
 
         if(modifiedHitPoints >= 1) {
             return modifiedHitPoints;
@@ -42,8 +42,8 @@ public class Character {
         }
     }
 
-    public void setHitPoints(int hitPoints) {
-        this.hitPoints = hitPoints;
+    public void setMaximumHitPoints(int maximumHitPoints) {
+        this.maximumHitPoints = maximumHitPoints;
     }
 
     public int getArmorClass() {
@@ -108,13 +108,13 @@ public class Character {
 
         if(roll >= victim.getArmorClass()) {
             int damage = roll == 20 ? 2 : 1;
-            victim.setHitPoints(victim.getHitPoints() - damage);
+            victim.setMaximumHitPoints(victim.getMaximumHitPoints() - damage);
             return true;
         }
         return false;
     }
 
     public boolean isAlive() {
-        return hitPoints > 0;
+        return maximumHitPoints > 0;
     }
 }
